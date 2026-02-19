@@ -28,7 +28,7 @@ export default function TasksPage() {
     }
 
     try {
-      const res = await fetch('http://localhost:8000/tasks', {
+      const res = await fetch('https://project-task-u6af.onrender.com//tasks', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -72,7 +72,7 @@ export default function TasksPage() {
     }
 
     try {
-      const res = await fetch('http://localhost:8000/tasks', {
+      const res = await fetch('https://project-task-u6af.onrender.com//tasks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ export default function TasksPage() {
     }
 
     try {
-      const res = await fetch(`http://localhost:8000/tasks/${taskId}`, {
+      const res = await fetch(`https://project-task-u6af.onrender.com//tasks/${taskId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -123,7 +123,7 @@ export default function TasksPage() {
 
   const handleUpdateTask = async (id: number) => {
     const token = localStorage.getItem('token')
-    const res = await fetch(`http://localhost:8000/tasks/${id}`, {
+    const res = await fetch(`https://project-task-u6af.onrender.com//tasks/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -154,7 +154,7 @@ export default function TasksPage() {
     }
 
     try {
-      const res = await fetch(`http://localhost:8000/tasks/${taskId}/toggle`, {
+      const res = await fetch(`https://project-task-u6af.onrender.com//tasks/${taskId}/toggle`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,
