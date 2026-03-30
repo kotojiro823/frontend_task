@@ -19,7 +19,7 @@ export default function TasksPage() {
   const [editingId, setEditingId] = useState<number | null>(null)
   const [editTitle, setEditTitle] = useState('')
   const [editDescription, setEditDescription] = useState('')
-
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL
   const fetchTasks = async () => {
     const token = localStorage.getItem('token')
     if (!token) {
@@ -28,7 +28,7 @@ export default function TasksPage() {
     }
 
     try {
-      const res = await fetch('https://project-task-u6af.onrender.com/tasks', {
+      const res = await fetch(`${apiUrl}/tasks`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -72,7 +72,7 @@ export default function TasksPage() {
     }
 
     try {
-      const res = await fetch('https://project-task-u6af.onrender.com/tasks', {
+      const res = await fetch(`${apiUrl}/tasks`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ export default function TasksPage() {
     }
 
     try {
-      const res = await fetch(`https://project-task-u6af.onrender.com/tasks/${taskId}`, {
+      const res = await fetch(`${apiUrl}/tasks/${taskId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -123,7 +123,7 @@ export default function TasksPage() {
 
   const handleUpdateTask = async (id: number) => {
     const token = localStorage.getItem('token')
-    const res = await fetch(`https://project-task-u6af.onrender.com/tasks/${id}`, {
+    const res = await fetch(`${apiUrl}/tasks/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -154,7 +154,7 @@ export default function TasksPage() {
     }
 
     try {
-      const res = await fetch(`https://project-task-u6af.onrender.com/tasks/${taskId}/toggle`, {
+      const res = await fetch(`${apiUrl}/tasks/${taskId}/toggle`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,
